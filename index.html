@@ -4,1606 +4,508 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STR8UP Consulting & Business Setup</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            color: white;
-            min-height: 100vh;
-        }
-
-        .hero-section {
-            background-color: #000;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-        }
-
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('road-background.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: blur(3px) brightness(0.4);
-            z-index: 1;
-        }
-
-        .content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-            text-align: center;
-            min-height: 100vh;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 2rem;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            padding: 0.5rem 2rem;
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 2px solid #ff3333;
-        }
-
-        .description {
-            max-width: 800px;
-            font-size: 1.5rem;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        .tagline-section {
-            background-color: #FFE4E1;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .tagline {
-            color: #FF0000;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .sub-tagline {
-            font-size: 2rem;
-            color: #000;
-            margin-bottom: 3rem;
-        }
-
-        .str8 {
-            color: #FF0000;
-            font-style: italic;
-        }
-
-        .hurdle-image {
-            max-width: 800px;
-            width: 90%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
-            display: block;
-        }
-
-        .obstacles-section {
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .obstacles-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('background-blur.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 1;
-        }
-
-        .obstacles-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .obstacles-heading {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .obstacles-heading span {
-            color: #FF0000;
-            font-weight: bold;
-        }
-
-        .str8up-benefits {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 4rem;
-        }
-
-        .str8up-benefits .highlight {
-            color: #FF0000;
-        }
-
-        .benefits-grid {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .benefit-item {
-            flex: 1;
-            min-width: 250px;
-            max-width: 300px;
-            text-align: center;
-        }
-
-        .benefit-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .benefit-title {
-            color: #FF0000;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .benefit-text {
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .no-gift-image {
-            max-width: 200px;
-            margin: 4rem auto 0;
-            display: block;
-            border-radius: 50%;
-            border: 3px solid #FF0000;
-        }
-
-        .real-consultant-section {
-            background-color: #1B4D4B;
-            padding: 4rem 2rem;
-            text-align: center;
-            color: white;
-        }
-
-        .consultant-heading {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-
-        .consultant-heading .highlight {
-            color: #FF0000;
-            font-weight: bold;
-        }
-
-        .consultant-heading .not {
-            text-decoration: underline;
-            font-weight: bold;
-        }
-
-        .consultant-heading .planner {
-            font-style: italic;
-        }
-
-        .results-statement {
-            font-size: 2.5rem;
-            margin: 3rem 0;
-            font-weight: bold;
-        }
-
-        .results-statement .highlight {
-            color: #FF0000;
-        }
-
-        .cake-approach {
-            max-width: 1000px;
-            margin: 0 auto;
-            font-size: 2rem;
-            line-height: 1.4;
-        }
-
-        .cake-approach .highlight {
-            color: #B8860B;
-            font-weight: bold;
-        }
-
-        .warning-text {
-            max-width: 900px;
-            margin: 2rem auto;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .warning-points {
-            font-weight: bold;
-            color: white;
-        }
-
-        .nav-menu {
-            background-color: #FF0000;
-            display: flex;
-            justify-content: center;
-            padding: 1rem 0;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 2rem;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border-right: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .nav-menu a:last-child {
-            border-right: none;
-        }
-
-        .bscan-section {
-            background-color: #000;
-            padding: 4rem 2rem;
-            color: white;
-        }
-
-        .bscan-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .bscan-content {
-            padding-right: 2rem;
-        }
-
-        .bscan-images {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .bscan-images img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-
-        .bscan-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .bscan-title .highlight {
-            color: #FF0000;
-        }
-
-        .assessment-list {
-            list-style: none;
-            margin-bottom: 3rem;
-        }
-
-        .assessment-list li {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        .help-section {
-            margin-top: 2rem;
-        }
-
-        .help-title {
-            color: #FF0000;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-
-        .help-list {
-            list-style: none;
-        }
-
-        .help-list li {
-            color: #FF0000;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .skills-section {
-            margin-top: 2rem;
-        }
-
-        .skills-title {
-            color: #FF0000;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-
-        .skills-list {
-            list-style: none;
-        }
-
-        .skills-list li {
-            color: #FF0000;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .carousel {
-            margin-top: 4rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .carousel-item {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-nav {
-            font-size: 2rem;
-            color: #FF0000;
-            cursor: pointer;
-        }
-
-        .process-section {
-            background-color: #000;
-            padding: 4rem 2rem;
-            color: white;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto 4rem;
-        }
-
-        .process-step {
-            padding: 2rem;
-        }
-
-        .process-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .process-list {
-            list-style: none;
-        }
-
-        .process-list li {
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            color: white;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .process-list li::before {
-            content: "•";
-            color: white;
-            margin-right: 0.5rem;
-        }
-
-        .process-images {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .process-image {
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .process-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                flex-wrap: wrap;
-            }
-            
-            .nav-menu a {
-                padding: 0.5rem 1rem;
-                font-size: 1rem;
-            }
-
-            .bscan-container {
-                grid-template-columns: 1fr;
-            }
-
-            .bscan-content {
-                padding-right: 0;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .process-images {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .tab-container {
-            background-color: #000;
-            padding: 0;
-            color: white;
-        }
-
-        .tab-navigation {
-            background-color: #FF0000;
-            display: flex;
-            justify-content: center;
-            padding: 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .tab-button {
-            background: none;
-            border: none;
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            border-right: 1px solid rgba(255, 255, 255, 0.3);
-            transition: background-color 0.3s;
-        }
-
-        .tab-button:last-child {
-            border-right: none;
-        }
-
-        .tab-button.active {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-
-        .tab-button:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .tab-content {
-            display: none;
-            padding: 4rem 2rem;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .tab-navigation {
-                flex-wrap: wrap;
-            }
-            
-            .tab-button {
-                flex: 1 1 calc(50% - 1px);
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-                text-align: center;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            }
-        }
-
-        .beliefs-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .beliefs-content {
-            text-align: left;
-        }
-
-        .beliefs-heading {
-            color: #FF0000;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .beliefs-list {
-            list-style: none;
-            margin-bottom: 3rem;
-        }
-
-        .beliefs-list li {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .beliefs-list li::before {
-            content: "•";
-            color: #FF0000;
-            margin-right: 1rem;
-            font-weight: bold;
-        }
-
-        .complete-text {
-            font-style: italic;
-        }
-
-        .non-beliefs {
-            margin-top: 3rem;
-        }
-
-        .beliefs-images {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .beliefs-image {
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .beliefs-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .beliefs-section {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .onsight-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .visit-content {
-            border: 2px solid #FF0000;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .visit-heading {
-            color: #FF0000;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        .visit-list {
-            list-style: none;
-        }
-
-        .visit-list li {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.4;
-        }
-
-        .visit-list li::before {
-            content: "•";
-            color: #FF0000;
-            margin-right: 1rem;
-            font-weight: bold;
-        }
-
-        .onsight-images {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .onsight-image {
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 1;
-        }
-
-        .onsight-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .helicopter-logo {
-            width: 150px;
-            height: 150px;
-            margin: 2rem auto;
-        }
-
-        .helicopter-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        @media (max-width: 768px) {
-            .onsight-section {
-                grid-template-columns: 1fr;
-            }
-
-            .onsight-images {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .steps-section {
-            background-color: white;
-            padding: 0 0 4rem 0;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto auto;
-            gap: 1rem;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .grid-image {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .grid-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .large-image {
-            grid-column: span 1;
-        }
-
-        .steps-title-box {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 1rem;
-            border: 2px solid #000;
-            text-align: center;
-        }
-
-        .steps-title {
-            font-size: 2rem;
-            color: #FF0000;
-            text-transform: uppercase;
-            margin: 0;
-            padding: 0.5rem;
-        }
-
-        .steps-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .step-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .step-question {
-            font-size: 2rem;
-            color: #000;
-            margin: 0;
-        }
-
-        .step-number {
-            color: #000;
-            font-weight: bold;
-        }
-
-        .step-word {
-            color: #FF0000;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .large-image {
-                grid-column: auto;
-            }
-
-            .steps-title {
-                font-size: 1.5rem;
-            }
-
-            .step-question {
-                font-size: 1.5rem;
-            }
-        }
-
-        .obstacles-straight-section {
-            background-color: #1B4D4B;
-            padding: 4rem 2rem;
-            color: white;
-            text-align: center;
-        }
-
-        .obstacles-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .obstacles-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            line-height: 1.3;
-        }
-
-        .red-text {
-            color: #FF0000;
-        }
-
-        .red-box {
-            background-color: #FF0000;
-            padding: 3rem 2rem;
-            border-radius: 10px;
-            margin: 0 auto;
-            max-width: 900px;
-        }
-
-        .business-statement {
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .sub-statement {
-            color: #FFFF00;
-            font-size: 1.8rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .advice-statement {
-            color: #FFFF00;
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            line-height: 1.4;
-            text-transform: uppercase;
-        }
-
-        .emphasis {
-            text-decoration: underline;
-            font-weight: bolder;
-        }
-
-        @media (max-width: 768px) {
-            .obstacles-title {
-                font-size: 2rem;
-            }
-
-            .business-statement {
-                font-size: 1.5rem;
-            }
-
-            .sub-statement,
-            .advice-statement {
-                font-size: 1.3rem;
-            }
-        }
-
-        .talks-workshops-section {
-            background-color: #FFE4E1;
-            padding: 4rem 2rem;
-            color: #000;
-        }
-
-        .talks-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .talks-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #FF0000;
-            text-transform: uppercase;
-            line-height: 1.2;
-        }
-
-        .and {
-            color: #000;
-        }
-
-        .talks-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .talks-column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .speaker-title {
-            color: #FF0000;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .talks-list, .workshops-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .talks-list li, .workshops-list li {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.4;
-        }
-
-        .talks-list em {
-            font-style: italic;
-            text-transform: uppercase;
-        }
-
-        .talk-image {
-            margin-top: auto;
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .talk-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .talks-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .talks-title {
-                font-size: 2rem;
-            }
-
-            .speaker-title {
-                font-size: 1.3rem;
-            }
-
-            .talks-list li, .workshops-list li {
-                font-size: 1rem;
-            }
-        }
-
-        .contact-section {
-            background-color: #FFE4E1;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .contact-title {
-            font-size: 2.5rem;
-            color: #000;
-            margin-bottom: 3rem;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 2rem;
-        }
-
-        .consultant-image {
-            flex: 1;
-            max-width: 400px;
-        }
-
-        .consultant-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .contact-form-container {
-            flex: 1;
-            max-width: 400px;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-title {
-            color: #000;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .form-group label {
-            color: #000;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .form-group input {
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .contact-button {
-            background-color: #000;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 1rem;
-        }
-
-        .contact-button:hover {
-            background-color: #333;
-        }
-
-        @media (max-width: 1024px) {
-            .contact-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .consultant-image {
-                max-width: 300px;
-            }
-
-            .contact-form-container {
-                width: 100%;
-                max-width: 500px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .contact-title {
-                font-size: 2rem;
-            }
-
-            .form-title {
-                font-size: 1.5rem;
-            }
-
-            .consultant-image {
-                max-width: 250px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">STR8UP</a>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#workshops" class="nav-link">Workshops</a>
+                <a href="#contact" class="nav-button">Contact Us</a>
+            </nav>
+            <button class="mobile-nav-toggle">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero-section">
-        <div class="background"></div>
-        <div class="content">
-            <div class="logo">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="45" stroke="#ff3333" stroke-width="5"/>
-                    <text x="50" y="55" text-anchor="middle" fill="#ff3333" style="font-size: 14px;">STR8UP</text>
-                    <line x1="50" y1="20" x2="50" y2="45" stroke="#ff3333" stroke-width="3" transform="rotate(45, 50, 50)"/>
-                </svg>
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-in">
+                    Create & Improve Your Business Fast
+                </h1>
+                <p class="hero-description animate-fade-in">
+                    We provide effective and personalized solutions with the best systems and practices in place.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#services" class="nav-button animate-fade-in">Our Services</a>
+                    <a href="#contact" class="nav-button animate-fade-in">Schedule a Call</a>
+                </div>
             </div>
-            <h1 class="title">STR8UP Consulting & Business Setup</h1>
-            <p class="description">
-                At STR8UP Consulting & Business Setup, we create and improve businesses fast. We give only the most effective and personalized solutions and put the very best systems and practices in place.
-            </p>
         </div>
     </section>
 
-    <section class="tagline-section">
-        <h2 class="tagline">Other consultants leave you running in circles...</h2>
-        <h3 class="sub-tagline">GO <span class="str8">STR8</span> FROM START TO FINISH!</h3>
-        <img src="hurdle-jump.jpg" alt="Person leaping over a hurdle symbolizing direct path to success" class="hurdle-image">
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">What We Offer</h2>
+                <p class="section-description">Comprehensive business solutions tailored to your needs</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card scroll-fade-in">
+                    <img src="assets/images/assessment.jpg" alt="Business Assessment" class="card-image" loading="lazy">
+                    <div class="card-content">
+                        <h3 class="card-title">Quick Business Assessment</h3>
+                        <p class="card-description">30-minute thorough evaluation of your business structure</p>
+                        <ul class="service-details">
+                            <li>Immediate insights and action items</li>
+                            <li>Structure and process evaluation</li>
+                            <li>Performance bottleneck identification</li>
+                            <li>Priority improvement areas</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">Schedule Assessment</a>
+                    </div>
+                </div>
+                <div class="card scroll-fade-in">
+                    <img src="assets/images/consulting.jpg" alt="Strategic Consulting" class="card-image" loading="lazy">
+                    <div class="card-content">
+                        <h3 class="card-title">Implementation Support</h3>
+                        <p class="card-description">Hands-on guidance for business optimization</p>
+                        <ul class="service-details">
+                            <li>Direct implementation assistance</li>
+                            <li>System setup and optimization</li>
+                            <li>Team training and development</li>
+                            <li>Progress monitoring and adjustments</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">Get Support</a>
+                    </div>
+                </div>
+                <div class="card scroll-fade-in">
+                    <img src="assets/images/workshops.jpg" alt="Interactive Workshops" class="card-image" loading="lazy">
+                    <div class="card-content">
+                        <h3 class="card-title">Interactive Workshops</h3>
+                        <p class="card-description">Hands-on learning and practical solutions</p>
+                        <ul class="service-details">
+                            <li>Small group sessions (5-15 people)</li>
+                            <li>Customized to your needs</li>
+                            <li>Real-time problem solving</li>
+                            <li>Take-home action plans</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">Book Workshop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="obstacles-section">
-        <div class="obstacles-content">
-            <h2 class="obstacles-heading">
-                <span>OBSTACLES</span> to straight answers come in pretty but pointless packages.
-            </h2>
-            
-            <h3 class="str8up-benefits">
-                WITH <span class="highlight">STR8UP</span> YOU GET...
-            </h3>
-
+    <!-- Benefits Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">REAL BENEFITS FOR YOUR BUSINESS</h2>
+                <p class="section-description">Tangible Results You Can Count On</p>
+            </div>
             <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2" y="4" width="20" height="16" stroke="#FF0000" stroke-width="2"/>
-                            <line x1="2" y1="8" x2="22" y2="8" stroke="#FF0000" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h4 class="benefit-title">ACTIONS</h4>
-                    <p class="benefit-text">not icing.</p>
+                <div class="benefit-item scroll-fade-in">
+                    <i class="ri-money-dollar-circle-line benefit-icon"></i>
+                    <h3 class="benefit-title">Increased Profits</h3>
+                    <p class="benefit-description">Optimize your operations and boost your bottom line</p>
                 </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4L20 4L16 8H8L4 4Z" stroke="#FF0000" stroke-width="2"/>
-                            <rect x="8" y="8" width="8" height="12" stroke="#FF0000" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h4 class="benefit-title">FACTS</h4>
-                    <p class="benefit-text">not frosting.</p>
+                <div class="benefit-item scroll-fade-in">
+                    <i class="ri-exchange-dollar-line benefit-icon"></i>
+                    <h3 class="benefit-title">Improved Cash Flow</h3>
+                    <p class="benefit-description">Better financial management and resource allocation</p>
                 </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 6L9 17L4 12" stroke="#FF0000" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h4 class="benefit-title">RESULTS</h4>
-                    <p class="benefit-text">not just dessert.</p>
+                <div class="benefit-item scroll-fade-in">
+                    <i class="ri-team-line benefit-icon"></i>
+                    <h3 class="benefit-title">Better Team Performance</h3>
+                    <p class="benefit-description">Enhanced productivity and employee satisfaction</p>
+                </div>
+                <div class="benefit-item scroll-fade-in">
+                    <i class="ri-time-line benefit-icon"></i>
+                    <h3 class="benefit-title">More Free Time</h3>
+                    <p class="benefit-description">Efficient systems that give you back your time</p>
+                </div>
+                <div class="benefit-item scroll-fade-in">
+                    <i class="ri-mental-health-line benefit-icon"></i>
+                    <h3 class="benefit-title">Peace of Mind</h3>
+                    <p class="benefit-description">Confidence in your business's direction and future</p>
                 </div>
             </div>
-
-            <img src="no-gift.jpg" alt="No fancy gift packages - just real results" class="no-gift-image">
         </div>
     </section>
 
-    <section class="real-consultant-section">
-        <h2 class="consultant-heading">
-            <span class="highlight">GET A REAL CONSULTANT,</span> <span class="not">not</span><br>
-            <span class="planner">A CORPORATE EVENT PLANNER.</span>
-        </h2>
-
-        <div class="results-statement">
-            WE GIVE... <span class="highlight">RESULTS</span>, NOT GIMMICKS.
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">MEET YOUR CONSULTANTS</h2>
+                <p class="section-description">Expert Guidance from Seasoned Professionals</p>
+            </div>
+            <div class="consultants-grid">
+                <div class="consultant-card scroll-fade-in">
+                    <img src="assets/images/greg-profile.png" alt="Greg" class="consultant-image" loading="lazy">
+                    <div class="consultant-content">
+                        <h3 class="consultant-name">Greg</h3>
+                        <p class="consultant-specialty">Business Structure & Financial Expert</p>
+                        <p class="consultant-description">Specializing in business setup, financial management, and strategic planning. Greg brings years of experience in helping businesses establish strong foundations and achieve sustainable growth.</p>
+                    </div>
+                </div>
+                <div class="consultant-card scroll-fade-in">
+                    <img src="assets/images/darin-profile.avif" alt="Darin" class="consultant-image" loading="lazy">
+                    <div class="consultant-content">
+                        <h3 class="consultant-name">Darin</h3>
+                        <p class="consultant-specialty">Team Building & Leadership Expert</p>
+                        <p class="consultant-description">Expert in team development, leadership training, and process implementation. Darin helps businesses build high-performing teams and establish effective management systems.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content scroll-fade-in">
+                <h3 class="about-subtitle">Our Approach</h3>
+                <p class="about-text">At STR8UP Consulting, we believe in delivering real solutions that create immediate impact. Our hands-on approach combines practical experience with proven methodologies to help businesses achieve their goals faster.</p>
+            </div>
         </div>
-
-        <div class="cake-approach">
-            Businesses today can no longer afford to stomach 
-            <span class="highlight">THE 3-LAYER-CAKE APPROACH</span> 
-            to consulting: 1. the <span class="highlight">Cappuccino</span>, 
-            2. the <span class="highlight">Silk Business Card</span>, 
-            3. the <span class="highlight">High-Priced Escort</span>...
-        </div>
-
-        <p class="warning-text">
-            And then the long wait to find out exactly HOW MUCH the whole affair is gonna cost you!<br>
-            With these guys you never really know: <span class="warning-points">A) WHO you're gonna get, B) HOW INSIGHTFUL they'll actually be, and C) if THE RESULTS will be as grand as the total.</span>
-        </p>
     </section>
 
-    <div class="tab-container">
-        <div class="tab-navigation">
-            <button class="tab-button active" onclick="openTab('consulting')">CONSULTING</button>
-            <button class="tab-button" onclick="openTab('business-tips')">BUSINESS TIPS</button>
-            <button class="tab-button" onclick="openTab('our-pov')">OUR POV</button>
-            <button class="tab-button" onclick="openTab('onsight-insights')">ONSIGHT INSIGHTS</button>
-        </div>
-
-        <div id="consulting" class="tab-content active">
-            <div class="bscan-container">
-                <div class="bscan-content">
-                    <h2 class="bscan-title">
-                        WE DO A <span class="highlight">B-SCAN</span> -<br>
-                        A QUICK & THOROUGH <span class="highlight">ASSESSMENT</span> OF YOUR:
-                    </h2>
-
-                    <ul class="assessment-list">
-                        <li>• FINANCES</li>
-                        <li>• COMPANY STRUCTURE</li>
-                        <li>• PRODUCTS, SUPPLIES & EQUIPMENT</li>
-                        <li>• EMPLOYEES</li>
-                        <li>• PERSONAL STRENGTHS & LIMITS</li>
-                    </ul>
-
-                    <div class="help-section">
-                        <h3 class="help-title">THIS WILL HELP YOU TO...</h3>
-                        <ul class="help-list">
-                            <li>• CHOOSE YOUR TYPE OF BUSINESS</li>
-                            <li>• SET UP YOUR BUSINESS INFRASTRUCTURE</li>
-                            <li>• OPTIMIZE YOUR ADVERTISING</li>
-                            <li>• IMPROVE YOUR CREDIT, FINANCE & RETIREMENT</li>
-                            <li>• BUY NEW VEHICLES AT THE LOWEST PRICE</li>
-                            <li>• EXPAND YOUR BUSINESS</li>
-                            <li>• GET THE RIGHT TAX ADVICE</li>
-                        </ul>
-                    </div>
-
-                    <div class="skills-section">
-                        <h3 class="skills-title">THIS WILL HELP YOU TO MAXIMIZE...</h3>
-                        <ul class="skills-list">
-                            <li>• TIMING</li>
-                            <li>• PROBLEM-SOLVING</li>
-                            <li>• PLANNING</li>
-                            <li>• ORGANIZING</li>
-                            <li>• DOCUMENTING</li>
-                            <li>• BRANDING & ADVERTISING CONTENT</li>
-                            <li>• FAST CUSTOMER COMMUNICATION</li>
-                            <li>• FAST EMPLOYEE COMMUNICATION</li>
-                            <li>• HIRING, FIRING & POSITIONING EMPLOYEES</li>
-                            <li>• BOUNDARIES WITH CUSTOMERS & EMPLOYEES</li>
-                        </ul>
-                    </div>
+    <!-- Features Section -->
+    <section class="section bg-secondary text-light">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">WITH STR8UP YOU GET...</h2>
+                <p class="section-description">Real Solutions. Real Results. Real Fast.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item scroll-fade-in">
+                    <i class="ri-focus-3-line feature-icon"></i>
+                    <h3 class="feature-title">Actions Not Icing</h3>
+                    <p class="feature-description">We don't just tell you what to do, we help you implement the solutions</p>
                 </div>
-
-                <div class="bscan-images">
-                    <img src="bell.jpg" alt="Business assessment bell" class="assessment-image">
-                    <img src="data.jpg" alt="Business data analysis" class="data-image">
-                    <img src="clock.jpg" alt="Time management" class="clock-image">
+                <div class="feature-item scroll-fade-in">
+                    <i class="ri-file-list-3-line feature-icon"></i>
+                    <h3 class="feature-title">Facts Not Frosting</h3>
+                    <p class="feature-description">We give you the truth about your business, not what you want to hear</p>
+                </div>
+                <div class="feature-item scroll-fade-in">
+                    <i class="ri-line-chart-line feature-icon"></i>
+                    <h3 class="feature-title">Real Results</h3>
+                    <p class="feature-description">We help you create & improve your business FAST with the best systems and practices in place</p>
+                </div>
+                <div class="feature-item scroll-fade-in">
+                    <i class="ri-timer-line feature-icon"></i>
+                    <h3 class="feature-title">Quick Assessment</h3>
+                    <p class="feature-description">A thorough evaluation of your business structure in 30 minutes or less</p>
+                </div>
+                <div class="feature-item scroll-fade-in">
+                    <i class="ri-shield-check-line feature-icon"></i>
+                    <h3 class="feature-title">Proven Solutions</h3>
+                    <p class="feature-description">Effective and personalized solutions that work for your specific situation</p>
+                </div>
+                <div class="feature-item scroll-fade-in">
+                    <i class="ri-group-line feature-icon"></i>
+                    <h3 class="feature-title">Expert Support</h3>
+                    <p class="feature-description">Direct access to experienced business consultants who understand your challenges</p>
                 </div>
             </div>
-
-            <div class="carousel">
-                <span class="carousel-nav">‹</span>
-                <div class="carousel-item">
-                    <img src="consultant1.jpg" alt="Business consultant">
-                </div>
-                <div class="carousel-item">
-                    <img src="credit-card.jpg" alt="Business credit card">
-                </div>
-                <div class="carousel-item">
-                    <img src="wallet.jpg" alt="Business wallet">
-                </div>
-                <div class="carousel-item">
-                    <img src="consultant2.jpg" alt="Business consultant">
-                </div>
-                <span class="carousel-nav">›</span>
-            </div>
         </div>
+    </section>
 
-        <div id="business-tips" class="tab-content">
+    <!-- Process Section -->
+    <section id="process" class="section">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">1-2-3 WHAT, WHO & HOW?</h2>
+                <p class="section-description">Our Simple Yet Effective Approach</p>
+            </div>
             <div class="process-grid">
-                <div class="process-step">
-                    <h3 class="process-title">1. MARKET ASSESSMENT:</h3>
-                    <ul class="process-list">
-                        <li>Demand.</li>
-                        <li>Competition.</li>
-                        <li>Costs.</li>
-                        <li>Skills.</li>
-                        <li>Investment amount.</li>
-                        <li>Licenses & Regulations.</li>
-                    </ul>
+                <div class="process-item scroll-fade-in">
+                    <div class="process-number">1</div>
+                    <h3 class="process-title">WHAT?</h3>
+                    <p class="process-description">What are your obstacles? What's holding you back? What's your vision?</p>
                 </div>
-
-                <div class="process-step">
-                    <h3 class="process-title">2. ACTION:</h3>
-                    <ul class="process-list">
-                        <li>Market Planning & Testing.</li>
-                        <li>Infrastructure Setup (Daily Operations, Processes & Employees).</li>
-                        <li>Investment Allocation.</li>
-                        <li>Industry Analysis.</li>
-                    </ul>
+                <div class="process-item scroll-fade-in">
+                    <div class="process-number">2</div>
+                    <h3 class="process-title">WHO?</h3>
+                    <p class="process-description">Who needs to be involved? Who's accountable? Who's responsible?</p>
                 </div>
-
-                <div class="process-step">
-                    <h3 class="process-title">3. ORGANIZATION:</h3>
-                    <ul class="process-list">
-                        <li>Revamping Business Infrastructure.</li>
-                        <li>Optimizing the Work Area.</li>
-                        <li>Defining & Documenting All Employee Roles & Duties.</li>
-                        <li>Drafting the Company Training Manual.</li>
-                        <li>Defining Your Company Culture.</li>
-                        <li>Monitoring Daily Operations.</li>
-                    </ul>
-                </div>
-
-                <div class="process-step">
-                    <h3 class="process-title">4. STR8-FORWARD:</h3>
-                    <ul class="process-list">
-                        <li>6-Month Plans.</li>
-                        <li>P & L Statements.</li>
-                        <li>Lower Costs.</li>
-                        <li>Assuring Further Customer Satisfaction.</li>
-                        <li>Customer Review System.</li>
-                        <li>Customer Community & Referral Network.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="process-images">
-                <div class="process-image">
-                    <img src="typing.jpg" alt="Business analysis and typing">
-                </div>
-                <div class="process-image">
-                    <img src="blueprint.jpg" alt="Business blueprint and planning">
-                </div>
-                <div class="process-image">
-                    <img src="graph.jpg" alt="Business performance graph">
-                </div>
-            </div>
-        </div>
-
-        <div id="our-pov" class="tab-content">
-            <div class="beliefs-section">
-                <div class="beliefs-content">
-                    <h3 class="beliefs-heading">WE BELIEVE IN:</h3>
-                    <ul class="beliefs-list">
-                        <li>BUILDING AND IMPROVING YOUR BUSINESS FAST!</li>
-                        <li>PINPOINTING MARKET TRENDS & DEMAND.</li>
-                        <li>CUSTOM-BUILDING YOUR COMPANY.</li>
-                        <li>SAVING YOU MONEY ON UNNECESSARY EXPENSES.</li>
-                        <li>GIVING CUSTOMERS A <span class="complete-text">COMPLETE</span> BUSINESS EXPERIENCE.</li>
-                    </ul>
-
-                    <div class="non-beliefs">
-                        <h3 class="beliefs-heading">WE DON'T BELIEVE IN:</h3>
-                        <ul class="beliefs-list">
-                            <li>THE <span class="complete-text">ONE-SIZE-FITS-ALL</span> APPROACH!</li>
-                            <li>"HALF-BAKED" BUSINESSES.</li>
-                            <li>STUBORN BUSINESS OWNERS.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="beliefs-images">
-                    <div class="beliefs-image">
-                        <img src="books.jpg" alt="Business knowledge and expertise">
-                    </div>
-                    <div class="beliefs-image">
-                        <img src="puzzle.jpg" alt="Business solutions">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="onsight-insights" class="tab-content">
-            <div class="onsight-section">
-                <div class="visit-content">
-                    <h3 class="visit-heading">WE VISIT YOUR COMPANY ONSITE TO...</h3>
-                    <ul class="visit-list">
-                        <li>Set Up Structure & Infrastructure.</li>
-                        <li>Improve Work & Work Preparation.</li>
-                        <li>Systematize & Improve Inventory.</li>
-                        <li>Remove All Inefficiencies.</li>
-                        <li>Advise You On Compliance Issues.</li>
-                        <li>Help You Reduce Your Taxes.</li>
-                        <li>Advise You On Expansion & Vertical Integration.</li>
-                    </ul>
-                </div>
-
-                <div class="onsight-images">
-                    <div class="onsight-image">
-                        <img src="tools.jpg" alt="Business tools and equipment">
-                    </div>
-                    <div class="onsight-image">
-                        <img src="aerial.jpg" alt="Aerial view of business">
-                    </div>
-                    <div class="onsight-image">
-                        <img src="blueprint.jpg" alt="Business blueprint">
-                    </div>
-                    <div class="onsight-image">
-                        <img src="equipment.jpg" alt="Business equipment">
-                    </div>
-                </div>
-            </div>
-
-            <div class="helicopter-logo">
-                <img src="helicopter.png" alt="Helicopter logo" style="filter: brightness(0) invert(1);">
-            </div>
-        </div>
-    </div>
-
-    <section class="steps-section">
-        <div class="steps-grid">
-            <div class="grid-image">
-                <img src="retail-aisle.jpg" alt="Retail store aisle with products">
-            </div>
-            <div class="grid-image">
-                <img src="chef-cooking.jpg" alt="Chef working in kitchen">
-            </div>
-            <div class="grid-image large-image">
-                <img src="service-van.jpg" alt="Service van with equipment">
-            </div>
-            <div class="grid-image large-image">
-                <img src="retail-staff.jpg" alt="Retail staff working with clothing">
-            </div>
-        </div>
-
-        <div class="steps-title-box">
-            <h2 class="steps-title">1 - 2 - 3&nbsp;&nbsp;&nbsp;WHAT, WHO & HOW?</h2>
-        </div>
-
-        <div class="steps-content">
-            <div class="step-item">
-                <h3 class="step-question"><span class="step-number">1.</span><span class="step-word">WHAT</span> DO I NEED?</h3>
-            </div>
-            <div class="step-item">
-                <h3 class="step-question"><span class="step-number">2.</span><span class="step-word">WHO</span> NEEDS IT?</h3>
-            </div>
-            <div class="step-item">
-                <h3 class="step-question"><span class="step-number">3.</span><span class="step-word">HOW</span> DO I KEEP IT RUNNING?</h3>
-            </div>
-        </div>
-    </section>
-
-    <section class="obstacles-straight-section">
-        <div class="obstacles-container">
-            <h2 class="obstacles-title">
-                <span class="red-text">Obstacles to STRAIGHT ANSWERS</span> come in zillions<br>
-                of fine-sounding phrases.
-            </h2>
-
-            <div class="red-box">
-                <p class="business-statement">ANY BUSINESS <span class="emphasis">NOT</span> FUNCTIONING AT A HIGH LEVEL</p>
-                
-                <p class="sub-statement">-PAYING THE BILLS & HAVING A LARGE VOLUME<br>OF CUSTOMERS-</p>
-                
-                <p class="business-statement">HAS <span class="emphasis">NO BUSINESS</span> BEING IN BUSINESS.</p>
-                
-                <p class="advice-statement">YOU SHOULD ONLY BE IN BUSINESS IF<br>
-                YOU'RE READY TO IDENTIFY YOUR BLIND SPOTS<br>
-                & ADAPT TO THE NEW RULES OF THE GAME!</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="talks-workshops-section">
-        <div class="talks-container">
-            <h2 class="talks-title">STR8 TALKS <span class="and">&</span> INTERACTIVE<br>WORKSHOPS</h2>
-
-            <div class="talks-grid">
-                <div class="talks-column">
-                    <h3 class="speaker-title">GREG'S TALKS:</h3>
-                    <ul class="talks-list">
-                        <li>1. THE ABCs & 123s OF STARTING A BUSINESS</li>
-                        <li>2. THE BIG QUESTIONS</li>
-                        <li>3. MARKETING THE RIGHT WAY</li>
-                        <li>4. BUILDING YOUR CREDIT</li>
-                        <li>5. GROW YOUR BUSINESS IN STAGES</li>
-                        <li>6. EIGHT STEPS TO BUYING A NEW VEHICLE</li>
-                        <li>7. SAVINGS, RETIREMENT & TAX LOOPHOLES</li>
-                        <li>8. HOW TO BEAT THE COMPETITION</li>
-                    </ul>
-                    <div class="talk-image">
-                        <img src="board-game.jpg" alt="Business strategy board game">
-                    </div>
-                </div>
-
-                <div class="talks-column">
-                    <h3 class="speaker-title">DARIN'S TALKS:</h3>
-                    <ul class="talks-list">
-                        <li>1. DETAILING YOUR BUSINESS</li>
-                        <li>2. WHO TO HIRE AND AVOID</li>
-                        <li>3. BUILDING <em>THE</em> TEAM</li>
-                        <li>4. CREATING AN OUTSTANDING BRAND<br>&nbsp;&nbsp;&nbsp;&nbsp;& ADVERTISING CONTENT</li>
-                        <li>5. WHAT <em>YOUR</em> CUSTOMERS WANT</li>
-                        <li>6. BUILDING A SUPER-SOLID COMPANY<br>&nbsp;&nbsp;&nbsp;&nbsp;CULTURE</li>
-                        <li>7. <em>REAL</em> PROBLEM-SOLVING ACCORDING<br>&nbsp;&nbsp;&nbsp;&nbsp;TO DARIN</li>
-                    </ul>
-                    <div class="talk-image">
-                        <img src="bookshelf-d.jpg" alt="Bookshelf forming letter D">
-                    </div>
-                </div>
-
-                <div class="talks-column">
-                    <h3 class="speaker-title">INTERACTIVE WORKSHOPS:</h3>
-                    <ul class="workshops-list">
-                        <li>BUSINESS FOR DUMMIES</li>
-                        <li>BUSINESS FOR UPSTARTS</li>
-                        <li>CAREER CUT-OUTS</li>
-                        <li>WALK-THROUGH WORKSHOPS</li>
-                        <li>...& MORE!</li>
-                    </ul>
-                    <div class="talk-image">
-                        <img src="evolution.jpg" alt="Business evolution illustration">
-                    </div>
+                <div class="process-item scroll-fade-in">
+                    <div class="process-number">3</div>
+                    <h3 class="process-title">HOW?</h3>
+                    <p class="process-description">How do we get there? How do we implement? How do we measure success?</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
-        <h2 class="contact-title">CONTACT US HERE:</h2>
-        
-        <div class="contact-container">
-            <div class="consultant-image">
-                <img src="consultant-greg.jpg" alt="Business consultant">
+    <!-- Obstacles Section -->
+    <section class="section bg-secondary text-light">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">OBSTACLES</h2>
+                <p class="section-description">Common Challenges We Help You Overcome</p>
             </div>
+            <div class="obstacles-grid">
+                <div class="obstacle-item scroll-fade-in">
+                    <i class="ri-time-line obstacle-icon"></i>
+                    <h3 class="obstacle-title">Time Management</h3>
+                    <p class="obstacle-description">Not enough time to get everything done</p>
+                </div>
+                <div class="obstacle-item scroll-fade-in">
+                    <i class="ri-team-line obstacle-icon"></i>
+                    <h3 class="obstacle-title">Team Issues</h3>
+                    <p class="obstacle-description">Staff not performing to expectations</p>
+                </div>
+                <div class="obstacle-item scroll-fade-in">
+                    <i class="ri-money-dollar-circle-line obstacle-icon"></i>
+                    <h3 class="obstacle-title">Financial Struggles</h3>
+                    <p class="obstacle-description">Cash flow and profitability concerns</p>
+                </div>
+                <div class="obstacle-item scroll-fade-in">
+                    <i class="ri-customer-service-2-line obstacle-icon"></i>
+                    <h3 class="obstacle-title">Customer Service</h3>
+                    <p class="obstacle-description">Inconsistent service delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="contact-form-container">
-                <h3 class="form-title">SCHEDULE A CALL</h3>
-                <form class="contact-form" action="#" method="POST">
-                    <div class="form-group">
-                        <label for="firstName">First name</label>
-                        <input type="text" id="firstName" name="firstName" required>
+    <!-- Testimonials Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">SUCCESS STORIES</h2>
+                <p class="section-description">Real Results from Real Businesses</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-fade-in">
+                    <div class="testimonial-content">
+                        <i class="ri-double-quotes-l quote-icon"></i>
+                        <p class="testimonial-text">"The 30-minute assessment was eye-opening. They quickly identified our key issues and helped us implement effective solutions."</p>
+                        <div class="testimonial-author">
+                            <h4>Sarah Johnson</h4>
+                            <p>Small Business Owner</p>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="lastName">Last name</label>
-                        <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="testimonial-card scroll-fade-in">
+                    <div class="testimonial-content">
+                        <i class="ri-double-quotes-l quote-icon"></i>
+                        <p class="testimonial-text">"Their hands-on approach to implementation made all the difference. Our team productivity increased by 40% in just two months."</p>
+                        <div class="testimonial-author">
+                            <h4>Mike Anderson</h4>
+                            <p>Operations Manager</p>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" placeholder="e.g., email@example.com" required>
+                </div>
+                <div class="testimonial-card scroll-fade-in">
+                    <div class="testimonial-content">
+                        <i class="ri-double-quotes-l quote-icon"></i>
+                        <p class="testimonial-text">"The workshop was incredibly practical. We left with a clear action plan and the support to make it happen."</p>
+                        <div class="testimonial-author">
+                            <h4>Lisa Martinez</h4>
+                            <p>Team Leader</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="results-summary scroll-fade-in">
+                <div class="result-stat">
+                    <span class="result-number">200+</span>
+                    <span class="result-label">Businesses Improved</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-number">40%</span>
+                    <span class="result-label">Average Efficiency Gain</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-number">95%</span>
+                    <span class="result-label">Client Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <button type="submit" class="contact-button">CONTACT</button>
+    <!-- Workshops Section -->
+    <section id="workshops" class="section">
+        <div class="container">
+            <div class="section-header scroll-fade-in">
+                <h2 class="section-title">STR8 TALKS & INTERACTIVE WORKSHOPS</h2>
+                <p class="section-description">Expert-Led Sessions for Business Growth</p>
+            </div>
+            <div class="workshops-grid">
+                <div class="workshop-column scroll-fade-in">
+                    <h3 class="workshop-host">Greg's Talks</h3>
+                    <ul class="workshop-list">
+                        <li>Business Structure & Setup (2 hours)</li>
+                        <li>Financial Management Mastery (3 hours)</li>
+                        <li>Strategic Planning Workshop (4 hours)</li>
+                        <li>Growth Strategy Implementation (Full Day)</li>
+                    </ul>
+                    <div class="workshop-details">
+                        <p>Small group format (5-15 participants)</p>
+                        <p>Includes workbooks and action plans</p>
+                        <p>Follow-up support available</p>
+                    </div>
+                </div>
+                <div class="workshop-column scroll-fade-in">
+                    <h3 class="workshop-host">Darin's Talks</h3>
+                    <ul class="workshop-list">
+                        <li>Team Building Essentials (2 hours)</li>
+                        <li>Leadership Development (3 hours)</li>
+                        <li>Process Implementation (4 hours)</li>
+                        <li>Performance Management (Full Day)</li>
+                    </ul>
+                    <div class="workshop-details">
+                        <p>Interactive exercises and role-play</p>
+                        <p>Real-world case studies</p>
+                        <p>Ongoing mentoring options</p>
+                    </div>
+                </div>
+                <div class="workshop-column scroll-fade-in">
+                    <h3 class="workshop-host">Interactive Workshops</h3>
+                    <ul class="workshop-list">
+                        <li>Problem-Solving Sessions (2 hours)</li>
+                        <li>Strategy Development (Half Day)</li>
+                        <li>Implementation Planning (Full Day)</li>
+                        <li>Custom Workshop Design (Flexible)</li>
+                    </ul>
+                    <div class="workshop-details">
+                        <p>Hands-on practical exercises</p>
+                        <p>Customized to your business</p>
+                        <p>Take-home implementation guides</p>
+                    </div>
+                </div>
+            </div>
+            <div class="workshop-cta scroll-fade-in">
+                <h3>Ready to Transform Your Business?</h3>
+                <p>Book a workshop or custom training session for your team</p>
+                <a href="#contact" class="nav-button">Schedule Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-content scroll-fade-in">
+                    <h2 class="section-title">Let's Talk Business</h2>
+                    <p class="section-description">Schedule a consultation with our experts</p>
+                </div>
+                <form class="contact-form scroll-fade-in">
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-input" placeholder=" " required>
+                        <label for="name" class="form-label">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-input" placeholder=" " required>
+                        <label for="email" class="form-label">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" class="form-input" placeholder=" ">
+                        <label for="phone" class="form-label">Phone Number</label>
+                    </div>
+                    <button type="submit" class="submit-button">Schedule a Call</button>
                 </form>
             </div>
-
-            <div class="consultant-image">
-                <img src="consultant-darin.jpg" alt="Business consultant">
-            </div>
         </div>
     </section>
 
-    <footer style="background-color: black; padding: 1rem; text-align: center; color: white;">
-        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem;">
-            <div style="display: flex; align-items: center;">
-                <img src="email-icon.png" alt="Email" style="width: 20px; height: 20px; margin-right: 8px; filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);">
-                <span>info@str8upconsultants.com</span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <div style="display: flex; align-items: center;">
-                    <img src="phone-icon.png" alt="Phone" style="width: 20px; height: 20px; margin-right: 8px; filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);">
-                    <span>(813) 444-7295 - Darin</span>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">STR8UP Consulting</h3>
+                    <p>Creating and improving businesses with effective solutions and best practices.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social-link"><i class="ri-twitter-fill"></i></a>
+                        <a href="#" class="social-link"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#" class="social-link"><i class="ri-instagram-fill"></i></a>
+                    </div>
                 </div>
-                <div style="display: flex; align-items: center;">
-                    <img src="phone-icon.png" alt="Phone" style="width: 20px; height: 20px; margin-right: 8px; filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);">
-                    <span>(813) 641-4220 - Greg</span>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link">info@str8upconsultants.com</li>
+                        <li class="footer-link">(813) 444-7295 - Darin</li>
+                        <li class="footer-link">(813) 641-4220 - Greg</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about" class="footer-link">About Us</a></li>
+                        <li><a href="#services" class="footer-link">Services</a></li>
+                        <li><a href="#process" class="footer-link">Our Process</a></li>
+                        <li><a href="#workshops" class="footer-link">Workshops</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div style="display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0;">
-            <a href="#" style="color: white;"><img src="facebook-icon.png" alt="Facebook" style="width: 24px; height: 24px; filter: brightness(0) invert(1);"></a>
-            <a href="#" style="color: white;"><img src="twitter-icon.png" alt="Twitter" style="width: 24px; height: 24px; filter: brightness(0) invert(1);"></a>
-            <a href="#" style="color: white;"><img src="linkedin-icon.png" alt="LinkedIn" style="width: 24px; height: 24px; filter: brightness(0) invert(1);"></a>
-            <a href="#" style="color: white;"><img src="instagram-icon.png" alt="Instagram" style="width: 24px; height: 24px; filter: brightness(0) invert(1);"></a>
-        </div>
-
-        <div style="font-size: 0.9rem; opacity: 0.8;">
-            Copyright © 2024 STR8UP Consulting & Business Setup, Inc.
+            <div class="footer-bottom">
+                <p>Copyright © 2024 STR8UP Consulting & Business Setup, Inc.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        function openTab(tabName) {
-            // Hide all tab content
-            const tabContents = document.getElementsByClassName('tab-content');
-            for (let content of tabContents) {
-                content.classList.remove('active');
-            }
-            
-            // Remove active class from all buttons
-            const tabButtons = document.getElementsByClassName('tab-button');
-            for (let button of tabButtons) {
-                button.classList.remove('active');
-            }
-            
-            // Show the selected tab content
-            document.getElementById(tabName).classList.add('active');
-            
-            // Add active class to the clicked button
-            event.currentTarget.classList.add('active');
-        }
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.progress-bar');
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
+        });
 
-        // Add scroll event listener to handle sticky navigation
-        window.addEventListener('scroll', function() {
-            const tabNav = document.querySelector('.tab-navigation');
-            const tabContainer = document.querySelector('.tab-container');
-            const containerTop = tabContainer.offsetTop;
-            
-            if (window.pageYOffset >= containerTop) {
-                tabNav.style.position = 'fixed';
-                tabNav.style.top = '0';
-                tabNav.style.width = '100%';
-                tabContainer.style.paddingTop = tabNav.offsetHeight + 'px';
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                tabNav.style.position = 'sticky';
-                tabNav.style.top = '0';
-                tabContainer.style.paddingTop = '0';
+                header.classList.remove('scrolled');
             }
         });
+
+        // Mobile Navigation
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileNavToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll Animation
+        const scrollElements = document.querySelectorAll('.scroll-fade-in');
+
+        const elementInView = (el, percentageScroll = 100) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= 
+                ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll/100))
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 90)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+
+        // Initialize scroll animations
+        handleScrollAnimation();
     </script>
 </body>
 </html>
