@@ -1132,3 +1132,243 @@ img {
         padding: var(--spacing-sm);
     }
 }
+
+/* Results Not Gimmicks Section */
+.anti-gimmick-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.highlight-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.highlight-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+.gimmick-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.gimmick-item {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+    padding: 1.5rem;
+}
+
+.gimmick-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    opacity: 0.5;
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gimmick-item p {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.emphasis-text {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+.transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.transparency-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.transparency-item .text-accent {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.transparency-item p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .gimmick-list {
+        flex-direction: column;
+    }
+    
+    .gimmick-item {
+        min-width: auto;
+    }
+    
+    .highlight-box h3 {
+        font-size: 1.5rem;
+    }
+    
+    .emphasis-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Company Overview Styles */
+.overview-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.overview-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.overview-card h3 {
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.overview-card p {
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.overview-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.overview-list li {
+    padding: var(--spacing-sm) 0;
+    color: var(--accent);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+}
+
+.overview-list li::before {
+    content: '→';
+    color: var(--primary);
+    margin-right: var(--spacing-sm);
+    font-weight: bold;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.approach-card {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal);
+}
+
+.approach-card:hover {
+    transform: translateY(-5px);
+}
+
+.approach-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.approach-card h4 {
+    color: var(--secondary);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.approach-card p {
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+.marketing-style {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.marketing-style h3 {
+    color: var(--secondary);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.style-card {
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.style-card h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.style-card p {
+    color: var(--accent);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .overview-grid,
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .style-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .overview-card,
+    .approach-card {
+        padding: var(--spacing-md);
+    }
+}
