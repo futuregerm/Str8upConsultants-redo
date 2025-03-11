@@ -16,6 +16,9 @@
         <div class="container nav-container">
             <a href="#" class="logo">STR8UP</a>
             <nav class="nav-menu">
+                <button class="mobile-nav-close">
+                    <i class="ri-close-line"></i>
+                </button>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#process" class="nav-link">Process</a>
@@ -586,10 +589,37 @@
 
         // Mobile Navigation
         const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
         const navMenu = document.querySelector('.nav-menu');
 
+        // Open menu
         mobileNavToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            navMenu.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        });
+
+        // Close menu
+        mobileNavClose.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && 
+                !navMenu.contains(e.target) && 
+                !mobileNavToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
 
         // Scroll Animation
@@ -621,6 +651,52 @@
 
         // Initialize scroll animations
         handleScrollAnimation();
+
+        // Logo click handler for smooth scroll to top
+        document.querySelector('.logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    // Scroll to top for "#" links
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+                
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return; // Skip if target doesn't exist
+                
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const offset = 20; // Additional offset for visual comfort
+                
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = targetPosition - headerHeight - offset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navMenu = document.querySelector('.nav-menu');
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
