@@ -148,4 +148,82 @@ const initializeApp = () => {
 };
 
 // Run initialization when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initializeApp); 
+document.addEventListener('DOMContentLoaded', initializeApp);
+
+// Mobile Navigation Handling
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements with exact class names
+    const toggle = document.querySelector('button.mobile-nav-toggle');
+    const menu = document.querySelector('nav.nav-menu');
+    const header = document.querySelector('header.header');
+
+    // Debug log to verify elements
+    console.log('Elements found:', {
+        toggle,
+        menu,
+        header
+    });
+
+    // Only proceed if we have the required elements
+    if (!toggle || !menu) {
+        console.error('Required navigation elements not found');
+        return;
+    }
+
+    // Mobile menu toggle
+    toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Toggle clicked'); // Debug log
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking links
+    const menuLinks = menu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    // Header scroll effect
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .scroll-fade-in').forEach(el => {
+        observer.observe(el);
+    });
+});
+
+// Add this to your existing CSS to prevent background scrolling when menu is open
+document.body.style.cssText = `
+    body.nav-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+`; 
