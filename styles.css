@@ -216,6 +216,12 @@ img {
     overflow: hidden;
     transition: transform var(--transition-normal),
                 box-shadow var(--transition-normal);
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -231,15 +237,22 @@ img {
 
 .card-content {
     padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
 }
 
 .card-title {
-    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
     margin-bottom: var(--spacing-sm);
 }
 
 .card-description {
-    color: var(--accent);
+    text-align: center;
+    width: 100%;
     margin-bottom: var(--spacing-md);
 }
 
@@ -984,6 +997,9 @@ img {
 .service-details {
     list-style: none;
     margin: var(--spacing-md) 0;
+    width: 100%;
+    text-align: left;
+    flex: 1;
 }
 
 .service-details li {
@@ -999,6 +1015,7 @@ img {
     color: var(--primary);
     margin-right: var(--spacing-xs);
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .service-cta {
@@ -1008,9 +1025,10 @@ img {
     color: white;
     border-radius: var(--radius-full);
     font-weight: 600;
-    margin-top: var(--spacing-md);
+    margin-top: auto;
     transition: transform var(--transition-fast),
                 box-shadow var(--transition-fast);
+    text-align: center;
 }
 
 .service-cta:hover {
