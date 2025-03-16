@@ -3,7 +3,7 @@
 
 :root {
     /* Colors */
-    --primary: #E63946;     /* Modern red */
+    --primary: #E63946;     /* Keep this lighter red for buttons */
     --secondary: #1D3557;   /* Deep blue */
     --accent: #457B9D;      /* Muted blue */
     --light: #F1FAEE;      /* Off-white */
@@ -132,11 +132,15 @@ img {
 
 /* Hero Section */
 .hero-section {
-    min-height: 100vh;
+    min-height: 80vh;
     position: relative;
     display: flex;
     align-items: center;
-    background: var(--gradient-dark);
+    background: linear-gradient(
+        135deg,
+        rgba(29, 53, 87, 0.95),  /* var(--secondary) with opacity */
+        rgba(143, 143, 143, 0.95)  /* var(--accent) with opacity */
+    );
     color: var(--light);
     overflow: hidden;
 }
@@ -147,9 +151,11 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url('assets/images/tunnel-hero.avif');
     background-size: cover;
     background-position: center;
-    opacity: 0.1;
+    opacity: 0.8;
+    filter: brightness(0.7);
 }
 
 .hero-content {
@@ -159,6 +165,7 @@ img {
     margin: 0 auto;
     padding: var(--spacing-xl) var(--container-padding);
     text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle text shadow */
 }
 
 .hero-title {
@@ -309,8 +316,8 @@ img {
 .logo {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--primary);
+    font-size: 2rem;
+    color: #9a000c;
 }
 
 .nav-menu {
@@ -342,7 +349,7 @@ img {
 }
 
 .nav-button {
-    background: var(--gradient-primary);
+    background: var(--primary);
     color: white;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-full);
@@ -560,7 +567,7 @@ img {
 .submit-button {
     width: 100%;
     padding: var(--spacing-md);
-    background: var(--gradient-primary);
+    background: var(--primary);
     color: white;
     border: none;
     border-radius: var(--radius-full);
