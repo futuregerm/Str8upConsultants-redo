@@ -132,11 +132,14 @@ img {
 
 /* Hero Section */
 .hero-section {
-    min-height: 100vh;
+    min-height: 77vh;
     position: relative;
     display: flex;
     align-items: center;
-    background: var(--gradient-dark);
+    background: linear-gradient(rgba(25, 25, 25, 0.5), rgba(25, 25, 25, 0.5)), url('../assets/images/motorcycle-tunnel.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--light);
     overflow: hidden;
 }
@@ -146,7 +149,8 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 70%;
+    background-image: url('../assets/images/motorcycle-tunnel.avif');
     background-size: cover;
     background-position: center;
     opacity: 0.1;
@@ -166,12 +170,15 @@ img {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: var(--spacing-lg);
+    color: var(--light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-description {
     font-size: clamp(1.1rem, 3vw, 1.3rem);
     margin-bottom: var(--spacing-xl);
-    opacity: 0.9;
+    color: var(--light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
@@ -296,8 +303,12 @@ img {
 }
 
 .header.scrolled {
-    background-color: white;
+    background: white;
     box-shadow: var(--shadow-md);
+}
+
+.header.scrolled .logo-video {
+    display: none;
 }
 
 .nav-container {
@@ -306,10 +317,34 @@ img {
     align-items: center;
 }
 
+.logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    width: auto;
+    height: 40px;
+}
+
+.logo-video {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
 .logo {
     font-family: var(--font-primary);
     font-weight: 700;
     font-size: 1.5rem;
+    color: var(--light);
+    position: relative;
+    z-index: 1;
+    line-height: 40px;
+}
+
+.header.scrolled .logo {
     color: var(--primary);
 }
 
@@ -323,6 +358,11 @@ img {
     font-weight: 500;
     position: relative;
     padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--light);
+}
+
+.header.scrolled .nav-link {
+    color: var(--dark);
 }
 
 .nav-link::after {
@@ -476,6 +516,21 @@ img {
     /* Ensure header hamburger lines are visible on light backgrounds */
     .header:not(.scrolled) .hamburger-line {
         background-color: var(--light);
+    }
+
+    .hero-section {
+        background-attachment: scroll;
+        min-height: 100svh; /* Use small viewport height for mobile */
+    }
+
+    .logo-video {
+        display: none;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero-section {
+        min-height: 120vh; /* Ensure full image visibility in landscape */
     }
 }
 
