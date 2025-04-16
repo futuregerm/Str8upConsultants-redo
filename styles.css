@@ -4,10 +4,13 @@
 :root {
     /* Colors */
     --primary: #E63946;     /* Keep this lighter red for buttons */
-    --secondary: #1D3557;   /* Deep blue */
+    --secondary: #000000;   /* Black */
     --accent: #457B9D;      /* Muted blue */
-    --light: #F1FAEE;      /* Off-white */
+    --light: #0B4C4C;      /* Dark teal/turquoise */
     --dark: #1F2937;       /* Soft black */
+    --text-on-light: #FFFFFF;  /* White text for light backgrounds */
+    --text-on-dark: #FFFFFF;   /* White text for dark backgrounds */
+    --text-muted: rgba(255, 255, 255, 0.7);     /* Semi-transparent white for subtle content */
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--primary), #FF8B8B);
@@ -59,7 +62,7 @@ html {
 
 body {
     font-family: var(--font-secondary);
-    color: var(--dark);
+    color: var(--text-on-light);
     line-height: 1.6;
     background-color: var(--light);
     overflow-x: hidden;
@@ -70,6 +73,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
+    color: var(--text-on-light);
 }
 
 a {
@@ -141,7 +145,7 @@ img {
         rgba(29, 53, 87, 0.95),  /* var(--secondary) with opacity */
         rgba(143, 143, 143, 0.95)  /* var(--accent) with opacity */
     );
-    color: var(--light);
+    color: var(--text-on-dark);
     overflow: hidden;
 }
 
@@ -205,8 +209,9 @@ img {
 }
 
 .section-description {
+    color: var(--text-on-light);
     font-size: 1.1rem;
-    color: var(--accent);
+    font-style: italic;
 }
 
 /* Cards Grid */
@@ -249,6 +254,8 @@ img {
     align-items: center;
     text-align: center;
     flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .card-title {
@@ -258,6 +265,7 @@ img {
 }
 
 .card-description {
+    color: var(--text-muted);
     text-align: center;
     width: 100%;
     margin-bottom: var(--spacing-md);
@@ -287,7 +295,7 @@ img {
 }
 
 .feature-description {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -330,6 +338,7 @@ img {
     font-weight: 500;
     position: relative;
     padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--text-on-dark);
 }
 
 .nav-link::after {
@@ -350,7 +359,7 @@ img {
 
 .nav-button {
     background: var(--primary);
-    color: white;
+    color: var(--text-on-dark);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-full);
     font-weight: 600;
@@ -473,7 +482,7 @@ img {
 
     .nav-menu .nav-link,
     .nav-menu .nav-button {
-        color: var(--light);
+        color: var(--text-on-dark);
         font-size: 1.2rem;
         width: 100%;
         text-align: center;
@@ -568,7 +577,7 @@ img {
     width: 100%;
     padding: var(--spacing-md);
     background: var(--primary);
-    color: white;
+    color: var(--text-on-dark);
     border: none;
     border-radius: var(--radius-full);
     font-weight: 600;
@@ -585,7 +594,7 @@ img {
 /* Footer Styles */
 .footer {
     background: var(--secondary);
-    color: var(--light);
+    color: var(--text-on-dark);
     padding: var(--spacing-xl) 0;
 }
 
@@ -785,7 +794,8 @@ img {
 .process-item {
     text-align: center;
     padding: var(--spacing-lg);
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-normal);
@@ -816,7 +826,7 @@ img {
 }
 
 .process-description {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 1rem;
 }
 
@@ -832,6 +842,7 @@ img {
     text-align: center;
     padding: var(--spacing-lg);
     background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     transition: transform var(--transition-normal);
 }
@@ -853,7 +864,7 @@ img {
 }
 
 .obstacle-description {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -866,11 +877,15 @@ img {
 }
 
 .workshop-column {
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;  /* Ensure consistent height */
 }
 
 .workshop-column:hover {
@@ -887,12 +902,13 @@ img {
 .workshop-list {
     list-style: none;
     margin-bottom: var(--spacing-lg);
+    flex: 1;  /* Take up remaining space */
 }
 
 .workshop-list li {
     padding: var(--spacing-sm) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--accent);
+    color: var(--text-muted);
 }
 
 .workshop-list li:last-child {
@@ -930,7 +946,8 @@ img {
 .benefit-item {
     text-align: center;
     padding: var(--spacing-lg);
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-normal);
@@ -954,7 +971,7 @@ img {
 }
 
 .benefit-description {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -967,7 +984,8 @@ img {
 }
 
 .consultant-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
@@ -981,9 +999,14 @@ img {
 
 .consultant-image {
     width: 100%;
-    height: 300px;
+    height: 445px;
     object-fit: cover;
 }
+
+width: 100%;
+height: 316px;
+object-fit: cover;
+object-position: bottom;
 
 .consultant-content {
     padding: var(--spacing-lg);
@@ -1002,7 +1025,7 @@ img {
 }
 
 .consultant-description {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -1021,7 +1044,7 @@ img {
 }
 
 .about-text {
-    color: var(--accent);
+    color: var(--text-on-light);
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -1049,7 +1072,7 @@ img {
 
 .service-details li {
     padding: var(--spacing-xs) 0;
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 0.9rem;
     display: flex;
     align-items: center;
@@ -1067,7 +1090,7 @@ img {
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-md);
     background: var(--gradient-primary);
-    color: white;
+    color: var(--text-on-dark);
     border-radius: var(--radius-full);
     font-weight: 600;
     margin-top: auto;
@@ -1103,7 +1126,7 @@ img {
 }
 
 .emergency-support p {
-    color: var(--accent);
+    color: var(--text-muted);
     margin-bottom: var(--spacing-md);
 }
 
@@ -1111,7 +1134,7 @@ img {
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-md);
     background: var(--gradient-primary);
-    color: white;
+    color: var(--text-on-dark);
     border-radius: var(--radius-full);
     font-weight: 600;
     transition: transform var(--transition-fast),
@@ -1132,7 +1155,8 @@ img {
 }
 
 .testimonial-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-md);
@@ -1152,8 +1176,8 @@ img {
 }
 
 .testimonial-text {
+    color: var(--text-on-light);
     font-size: 1.1rem;
-    color: var(--secondary);
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
     font-style: italic;
@@ -1165,7 +1189,7 @@ img {
 }
 
 .testimonial-author p {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -1192,20 +1216,20 @@ img {
 }
 
 .result-label {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 1.1rem;
 }
 
 /* Enhanced Workshop Styles */
 .workshop-details {
-    margin: var(--spacing-md) 0;
+    margin-top: auto;  /* Push to bottom */
     padding: var(--spacing-md);
     background: rgba(0, 0, 0, 0.05);
     border-radius: var(--radius-md);
 }
 
 .workshop-details p {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: var(--spacing-xs);
 }
@@ -1229,7 +1253,7 @@ img {
 }
 
 .workshop-cta p {
-    color: var(--accent);
+    color: var(--text-muted);
     margin-bottom: var(--spacing-md);
 }
 
@@ -1361,7 +1385,8 @@ img {
 }
 
 .overview-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
@@ -1374,7 +1399,7 @@ img {
 }
 
 .overview-card p {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 1.1rem;
     line-height: 1.6;
 }
@@ -1387,7 +1412,7 @@ img {
 
 .overview-list li {
     padding: var(--spacing-sm) 0;
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 1.1rem;
     display: flex;
     align-items: center;
@@ -1411,7 +1436,8 @@ img {
 .approach-card {
     text-align: center;
     padding: var(--spacing-lg);
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-normal);
@@ -1434,7 +1460,7 @@ img {
 }
 
 .approach-card p {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 1rem;
 }
 
@@ -1457,7 +1483,8 @@ img {
 
 .style-card {
     padding: var(--spacing-md);
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
 }
@@ -1469,7 +1496,7 @@ img {
 }
 
 .style-card p {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -1486,5 +1513,49 @@ img {
     .overview-card,
     .approach-card {
         padding: var(--spacing-md);
+    }
+}
+
+/* First section after hero needs white text due to dark background */
+.section:first-of-type {
+    color: var(--text-on-dark);
+}
+
+.section:first-of-type .section-description {
+    color: var(--text-on-dark);
+}
+
+/* Cards and other elements on white background */
+.card-content, 
+.process-item,
+.benefit-item,
+.consultant-card,
+.testimonial-card,
+.workshop-column,
+.overview-card,
+.approach-card,
+.style-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Ensure buttons have good contrast */
+.nav-button,
+.submit-button,
+.service-cta,
+.emergency-cta {
+    color: var(--text-on-dark);
+    background: var(--primary);
+}
+
+/* Mobile navigation text color */
+@media (max-width: 768px) {
+    .nav-menu {
+        background: var(--secondary);
+    }
+    
+    .nav-menu .nav-link,
+    .nav-menu .nav-button {
+        color: var(--text-on-dark);
     }
 }
